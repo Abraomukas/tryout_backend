@@ -56,4 +56,24 @@ class TryoutServiceTest {
         // then
         assertThat(result).isEqualTo(expected);
     }
+
+    @Test
+    void calculateCommission_differentCurrency_USD() {
+        // given
+        String date = "2021-10-26";
+        String amount = "100.00";
+        Currency currency = Currency.DOLLAR;
+        int client_id = 1;
+        Transaction transaction = new Transaction(date, amount, currency.label, client_id);
+
+        JSONObject expected = new JSONObject();
+        expected.put("amount", "0.61");
+        expected.put("currency", "EUR");
+
+        // when
+        JSONObject result = underTest.calculateCommission(transaction);
+
+        // then
+        assertThat(result).isEqualTo(expected);
+    }
 }
