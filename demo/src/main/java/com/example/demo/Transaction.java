@@ -11,6 +11,6 @@ import lombok.Setter;
 public class Transaction {
     private String date;
     private String amount;
-    private Currency currency;
+    private String currency;
     private int client_id;
 }

@@ -48,6 +48,7 @@ class TryoutServiceTest {
         double amount = 2000.0;
         Currency currency = Currency.EURO;
         int client_id = 42;
+
         JSONObject transaction = new JSONObject();
         transaction.put("date", date);
         transaction.put("amount", amount);
