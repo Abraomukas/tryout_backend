@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.Currency;
+import com.example.demo.Transaction;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,18 +21,13 @@ class TryoutServiceTest {
     void calculateCommission_ruleOne() {
         // given
         String date = "2021-10-26";
-        double amount = 500.0;
+        String amount = "500.00";
         Currency currency = Currency.EURO;
         int client_id = 1;
-
-        JSONObject transaction = new JSONObject();
-        transaction.put("date", date);
-        transaction.put("amount", amount);
-        transaction.put("currency", currency);
-        transaction.put("client_id", client_id);
+        Transaction transaction = new Transaction(date, amount, currency.label, client_id);
 
         JSONObject expected = new JSONObject();
-        expected.put("amount", "2.5");
+        expected.put("amount", "2.50");
         expected.put("currency", "EUR");
 
         // when
@@ -45,15 +41,10 @@ class TryoutServiceTest {
     void calculateCommission_ruleTwo() {
         // given
         String date = "2021-10-26";
-        double amount = 2000.0;
+        String amount = "2000.00";
         Currency currency = Currency.EURO;
         int client_id = 42;
-
-        JSONObject transaction = new JSONObject();
-        transaction.put("date", date);
-        transaction.put("amount", amount);
-        transaction.put("currency", currency);
-        transaction.put("client_id", client_id);
+        Transaction transaction = new Transaction(date, amount, currency.label, client_id);
 
         JSONObject expected = new JSONObject();
         expected.put("amount", "0.05");

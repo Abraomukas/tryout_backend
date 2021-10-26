@@ -8,13 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TryoutService {
 
-    public JSONObject calculateCommission(JSONObject transactionJson) {
-        String date = transactionJson.get("date").toString();
-        String amount = transactionJson.get("amount").toString();
-        String currencyJson = transactionJson.get("currency").toString();
-        int client_id = (Integer) transactionJson.get("client_id");
-
-        Transaction transaction = new Transaction(date, amount, currencyJson, client_id);
+    public JSONObject calculateCommission(Transaction transaction) {
         Commission commission = new Commission();
 
         return commission.getCommissionFrom(transaction);

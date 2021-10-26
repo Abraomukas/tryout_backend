@@ -27,10 +27,11 @@ public class Commission {
         } else {
             // Rule #1
             commission = Double.parseDouble(transaction.getAmount()) * 0.005;
+            System.out.println(Double.parseDouble(transaction.getAmount()) * 0.005);
             if (commission < 0.05) {
                 commission = 0.05;
             }
         }
-        return String.valueOf(commission);
+        return String.format("%.2f", commission);
     }
 }

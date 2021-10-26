@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.Transaction;
 import com.example.demo.service.TryoutService;
 import lombok.AllArgsConstructor;
 import org.json.simple.JSONObject;
@@ -18,7 +19,7 @@ public class TryoutController {
     }
 
     @PostMapping(path = "/")
-    public JSONObject getCommission(@RequestBody JSONObject transactionJson) {
+    public JSONObject getCommission(@RequestBody Transaction transactionJson) {
         return service.calculateCommission(transactionJson);
     }
 }
