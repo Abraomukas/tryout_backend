@@ -3,10 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.service.TryoutService;
 import lombok.AllArgsConstructor;
 import org.json.simple.JSONObject;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -14,6 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class TryoutController {
 
     private final TryoutService service;
+
+    @GetMapping(path = "/")
+    public String helloWorld() {
+        return "Hello, World!";
+    }
 
     @PostMapping(path = "/")
     public JSONObject getCommission(@RequestBody JSONObject transactionJson) {

@@ -11,8 +11,8 @@ public class TryoutService {
 
     public JSONObject calculateCommission(JSONObject transactionJson) {
         String date = transactionJson.get("date").toString();
-        double amount = (double) transactionJson.get("amount");
-        Currency currency = (Currency) transactionJson.get("currenty");
+        String amount = transactionJson.get("amount").toString();
+        Currency currency = (Currency) transactionJson.get("currency");
         int client_id = (Integer) transactionJson.get("client_id");
 
         Transaction transaction = new Transaction(date, amount, currency, client_id);

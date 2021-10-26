@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.json.simple.JSONObject;
@@ -20,14 +19,18 @@ public class Commission {
         return commission;
     }
 
-    private double calculateCommission(Transaction transaction) {
+    private String calculateCommission(Transaction transaction) {
+        double commission = -1;
         // Rule #2
         if (transaction.getClient_id() == 42) {
-            return 0.05;
+            commission = 0.05;
         } else {
             // Rule #1
-            double commission = transaction.getAmount() * 0.05;
-            return commission >= 0.05 ? commission:  0.05;
+            commission = Double.parseDouble(transaction.getAmount()) * 0.005;
+            if (commission < 0.05) {
+                commission = 0.05;
+            }
         }
+        return String.valueOf(commission);
     }
 }

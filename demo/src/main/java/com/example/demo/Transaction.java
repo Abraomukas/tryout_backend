@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class Transaction {
     private String date;
-    private double amount;
+    private String amount;
     private Currency currency;
     private int client_id;
 }
